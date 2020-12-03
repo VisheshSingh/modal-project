@@ -11,7 +11,16 @@
       <p>Grab the cool merchandize 🧥 at half the price</p>
     </Modal>
   </div>
-  <button @click.alt="toggleModal">Open Modal (alt)</button>
+  <div v-if="showModalTwo">
+    <Modal @close="toggleModalTwo">
+      <template v-slot:links>
+        <a href="#">Read 🗞</a>
+      </template>
+      <h1>Read our news letter 📰</h1>
+    </Modal>
+  </div>
+  <button @click="toggleModal">Open Modal</button>
+  <button @click="toggleModalTwo">Open Modal Two</button>
 </template>
 
 <script>
@@ -26,6 +35,7 @@ export default {
     return {
       title: 'Welcome to Vue.js',
       showModal: false,
+      showModalTwo: false,
     };
   },
   methods: {
@@ -34,6 +44,9 @@ export default {
     },
     toggleModal() {
       this.showModal = !this.showModal;
+    },
+    toggleModalTwo() {
+      this.showModalTwo = !this.showModalTwo;
     },
   },
 };
