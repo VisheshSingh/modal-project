@@ -1,6 +1,7 @@
 <template>
   <div class="backdrop">
     <div class="modal">
+      <h1>Modal Title</h1>
       <p>modal content</p>
     </div>
   </div>
@@ -21,5 +22,9 @@
   height: 100%;
   top: 0;
   left: 0;
+}
+.modal h1 {
+  color: #0fb;
+  display: inline-block;
 }
 </style>
