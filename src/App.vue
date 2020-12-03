@@ -1,10 +1,22 @@
 <template>
-  <h1>Welcome to Vue.js</h1>
+  <h1>{{ title }}</h1>
+  <input type="text" ref="name" />
+  <button @click="handleClick">Click me</button>
 </template>
 
 <script>
 export default {
   name: 'App',
+  data() {
+    return {
+      title: 'Welcome to Vue.js',
+    };
+  },
+  methods: {
+    handleClick() {
+      this.$refs.name.focus();
+    },
+  },
 };
 </script>
 
@@ -20,7 +32,6 @@ export default {
 
 h1 {
   padding-bottom: 10px;
-  display: inline-block;
   border-bottom: 1px solid #ddd;
 }
 </style>
