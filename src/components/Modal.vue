@@ -1,8 +1,10 @@
 <template>
   <div class="backdrop" @click.self="closeModal">
     <div class="modal" :class="{ sale: theme === 'sale' }">
-      <h1>{{ header }}</h1>
-      <p>{{ text }}</p>
+      <slot>Default slot</slot>
+      <div class="actions">
+        <slot name="links"></slot>
+      </div>
     </div>
   </div>
 </template>
@@ -44,5 +46,20 @@ export default {
 }
 .modal.sale h1 {
   color: #fff;
+}
+.modal .actions {
+  margin: 30px 0 10px 0;
+}
+.modal .actions a {
+  color: #333;
+  text-decoration: none;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #333;
+  border-radius: 4px;
+}
+.modal.sale .actions a {
+  color: #fff;
+  border-color: #fff;
 }
 </style>
